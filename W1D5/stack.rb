@@ -1,8 +1,8 @@
 
 class Stack
 
-  def initialize
-    @the_stack = []
+  def initialize(len = 0)
+    @the_stack = Array.new(0)
   end
 
   def add(el)
@@ -10,7 +10,7 @@ class Stack
   end
 
   def remove
-    the_stack.pop 
+    the_stack.pop
   end
 
   def show
