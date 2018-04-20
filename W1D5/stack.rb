@@ -2,7 +2,7 @@
 class Stack
 
   def initialize(len = 0)
-    @the_stack = Array.new(0)
+    @the_stack = Array.new(len)
   end
 
   def add(el)
