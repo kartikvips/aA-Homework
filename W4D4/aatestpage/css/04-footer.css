@@ -1,0 +1,52 @@
+/* PHASE 4: Footer */
+
+.footer {
+  width: 900px;
+  margin: auto;
+  font-size: 14px;
+  color: #aaa;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.footer-copy {
+  float: left;
+  margin: 10px 20px;
+}
+
+.footer-links {
+  float: right;
+  margin: 10px 0px;
+}
+
+.footer-links > li {
+  float: left;
+}
+
+.footer a {
+  margin: 10px 10px;
+}
+
+.footer a:hover {
+  color: black;
+}
+
+
+/* Colors
+Black: #000
+White: #fff
+Dark Gray: #aaa
+Gray: #ccc
+Light Gray: #eee
+Red: #f00
+Type
+Font Family: sans-serif
+Font Weights: 400, 700
+Font Sizes: 24px, 16px, 14px
+Borders
+Thickness: 1px
+Layout
+Whitespace: 5px, 10px, 20px
+Total Size Container: 900px
+Total Size Sidebar: 240px
+Total Size Content: 660px */
