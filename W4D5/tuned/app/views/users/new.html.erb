@@ -1,0 +1,23 @@
+<h2>Create New User</h2>
+
+<form action=" <%= users_url %>" method="post">
+
+  <% flash.each do |key, value| %>
+  <p><%= value %></p>
+  <% end %>
+
+  <label for = "Email">E-Mail: </label>
+  <input type = "text" id = "Email" name = "users[email]" value = "">
+
+  <label for = "password">Password: </label>
+  <input type = "password" id = "password" name = "users[password]" value = "">
+
+  <input type="submit" value="Submit">
+
+</form>
+
+
+
+
+
+<!--  -->

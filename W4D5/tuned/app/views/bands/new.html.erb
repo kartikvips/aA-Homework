@@ -1,0 +1,14 @@
+<h2>Create Band</h2>
+
+<form action=" <%= bands_url %>" method="post">
+
+  <% flash.each do |key, value| %>
+  <p><%= value %></p>
+  <% end %>
+
+  <label for = "band">Band: </label>
+  <input type = "text" id = "bandname" name = "bands[name]" value = "">
+
+  <input type="submit" value="Submit">
+
+</form>
