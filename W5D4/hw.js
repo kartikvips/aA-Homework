@@ -1,7 +1,11 @@
 
 window.setTimeout(function () {
-  alert('HAMMER TIME!');
+  alerttttt();
 }, 5000);
+
+function alerttttt(){
+  alert('HAMMERMEMEMEMEMEM TIMEEEEE')
+}
 
 function hammerTime (time) {
   window.setTimeout(function () {
