@@ -54,7 +54,9 @@ function mysteryScoping5() {
   let x = 'out of block again';
   console.log(x);
 }
-
+for (let i = 0; i < array.length; i++) {
+  array[i]
+}
 // error
 
 function madLib(s1, s2, s3){
@@ -87,6 +89,6 @@ function fizzbuzz(array){
 console.log(fizzbuzz([1,2,3,4,5,6,7,8,9,10]))
 
 function isPrime(n){
-  
+
 
 }
