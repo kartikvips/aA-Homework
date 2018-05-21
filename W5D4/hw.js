@@ -1,7 +1,5 @@
 
-window.setTimeout(function () {
-  alerttttt();
-}, 5000);
+window.setTimeout(alerttttt, 5000);
 
 function alerttttt(){
   alert('HAMMERMEMEMEMEMEM TIMEEEEE')
@@ -33,6 +31,7 @@ function teaAndBiscuits () {
     });
   });
 }
+
 
 
 function Cat () {
