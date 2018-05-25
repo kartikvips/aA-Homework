@@ -6,5 +6,8 @@ module.exports = {
       path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
       filename: "bundle.js"
   }
-  ...
+  devtool: 'source-map',
+  resolve: {
+    extensions: ['.js', '.jsx', '*']
+  },
 };
