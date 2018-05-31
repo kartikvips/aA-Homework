@@ -1,0 +1,146 @@
+Redux thunk cycle
+1) create ajax call
+2) added actions 
+3) go to root reducer and adjust handling of action
+4) container 
+5) component
+
+-backend will always send object with unique id
+-we will always use objects and pass objects
+
+
+
+
+//entry.jsx
+
+import Utils, { fetchInfo, RECEIVE_TEA } fro './utils.js';
+
+console.log(Utils); //default export
+console.log(fetchInfo());
+console.log(RECEIVE_TEA);
+
+//also
+import * as Utils from './utils';
+console.log(Utils); //default export
+console.log(Utils.fetchInfo());
+console.log(Utils.RECEIVE_TEA);
+
+//utils.jsx 
+
+
+middleware demo
+
+-add state to components for name
+
+
+
+
+$.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/tea'
+}).then(res => console.log(res));
+
+$.ajax({
+    method: 'POST',
+    url: 'http://localhost:3000/tea',
+    data: {
+        tea: {
+            name: 'White'
+        }
+    }
+}).then((res) => console.log(res))
+
+
+//tea_api_util.js
+
+
+export const fetchAllTea = () => {
+    return $.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/tea'
+}).then(res => console.log(res));
+};
+
+export const createTea = (tea) => {
+    return $.ajax({
+    method: 'POST',
+    url: 'http://localhost:3000/tea',
+    data: { tea }
+});
+};
+
+
+//tea_actions.js
+
+import * as TeaAPIUtil from '../utils/tea_api_util';
+
+export const RECEIVE_TEA = 'RECEIVE_TEA';
+export const RECEIVE_ALL_TEA = 'RECEIVE_ALL_TEA';
+
+export const receiveALLTea = allTea => ({
+    type: RECEIVE_ALL_TEA,
+    allTea
+});
+
+export const receiveTea = (tea) => ({
+    type: RECEIVE_TEA,
+    tea
+});
+
+export const createTea = tea => dispatch => {
+    TeaAPIUtil.createTea(tea).then(res => {
+        dispatch(receiveTea(res));
+    });
+};
+
+export const fetchAllTea = () => dispatch => {
+    TeaAPIUtil.fetchAllTea().then(res => {
+        dispatch(receiveAllTea(res));
+    });
+};
+
+//teas_reducer.js 
+
+import { RECEIVE_TEA } from '../actions/tea_actions';
+const teasReducer = (state = [], action) => {
+    Object.freeze(state);
+    switch (action.type) {
+        case RECEIVE_TEA:
+            const newState = [...state, action.tea];
+            return newState;
+        case RECEIVE_ALL_TEA:
+            return action.allTea;
+        default:
+            return state:
+
+    }
+}
+
+//tea_list_container.js
+
+const mapDispatchToProps = (dispatch => ({
+    recieveTea: tea => dispatch(receiveTea(tea)),
+    createTea: 
+}))
+
+//tea_list.jsx 
+
+in handle for button 
+
+createTea(this.state);
+
+//store.js 
+
+//import a lot of things 
+
+const configureStore = () => createStore(
+    rootReducer, applyMiddleware(logger)
+);
+
+export default configureStore;
+
+//use component did mount to show show all teas
+
+componentDidMount() {
+    this.props.fetchAllTea();
+}
